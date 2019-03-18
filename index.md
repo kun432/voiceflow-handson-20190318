@@ -9,7 +9,7 @@ id: dist
 {{if .Meta.GA}}analytics account: {{.Meta.GA}}{{end}}
 
 ---
-# Voiceflowハンズオン
+# Voiceflowハンズオン Vol.1
 
 ## 概要
 
@@ -69,7 +69,6 @@ Positive
 
 "Sign up with Google" をクリックします。gmailのログイン画面が出てきたらログインします。
 
-
 ![s002](images/s002.png)
 
 Voiceflowをどこで使うか？を聞いてくるので、適当に選んでください。（職場、個人、教育）
@@ -128,7 +127,6 @@ Voiceflowをどこで使うか？を聞いてくるので、適当に選んで�
 
 最後に"Continue"をクリックします。
 
-
 Negative
 : 複数の国にチェックを入れることができますが、日本語の場合、現時点では1つのスキルで多言語に対応することはできません。（厳密には、作成はできますが申請で弾かれる可能性が高いです。）
 
@@ -156,7 +154,7 @@ Positive
 
 右側にSpeakブロックのメニューが出てきました。"Tell Alexa what to say..."と書かれたところに以下の文章を入力します。
 
-```
+```raw
 我が家の食卓へようこそ！このスキルでは我が家のレシピをご紹介しますよ。
 ```
 
@@ -168,7 +166,7 @@ StartブロックとSpeakブロックを線でつなげます。Startブロッ�
 
 さらに、もう一つSpeakブロックを追加しましょう。場所は先ほど作成したSpeakブロックの右でよいです。中の文章は以下を入力します。
 
-```
+```raw
 何のレシピを聞きたいですか？
 ```
 
@@ -233,7 +231,7 @@ Alexa開発者コンソールのテストシミュレータ表示されます。
 
 ### 4-2. スキルのテスト
 
-ではテストしてみましょう。左の「日本語」と書かれた横の入力欄に「我が家の食卓をひらいて」と入力しENTERキーを押してください。 
+ではテストしてみましょう。左の「日本語」と書かれた横の入力欄に「我が家の食卓をひらいて」と入力しENTERキーを押してください。
 
 Positive
 : 実際に音声で入力することも可能です。その場合は、入力欄の右端にあるマイクのアイコンをクリックしたまま、「我が家の食卓を開いて」と言って、言い終わったらクリックを放してください。
@@ -284,7 +282,7 @@ Positive
 
 最初に説明したスキルの応答例の中に、ユーザが「やりたいこと、してほしいこと」が書いてあります。それはなんでしょうか？
 
-```
+```raw
 ユーザ　：肉じゃがのレシピを教えて
 ```
 
@@ -294,7 +292,7 @@ Positive
 
 今回の応答例では書いてませんが、例えば「レシピを教えて」と言う前に、そもそもレシピの種類は何があるんだろう？という疑問があってもおかしくありません。その場合には多分ユーザはこう言うでしょう。
 
-```
+```raw
 ユーザ　：レシピの種類を教えて
 ```
 
@@ -556,9 +554,173 @@ Ifブロックの右端の四角が増えているのがわかるでしょうか
 #### どれにも該当しない場合
 
 ```
-すいません、そのレシピはまだありません。そのうち用意しますので、また来てくださいね。
+すいません、そのレシピはまだありません。現在ご紹介できるレシピは、肉じゃが、カレーライス、カルボナーラです。
 ```
 
 こういう感じになります。
 
 ![s048](images/s048.png)
+
+elseのところについて説明しておきます。
+
+elseは、Ifブロックで設定した条件にどれも合致しなかった場合のフローになります。単に「そのレシピはないよ」と言って、終わってしまっても良いんですが、できればもう一回ユーザに言い直してもらうほうが親切ですよね？（じゃないと、ユーザに最初からやり直してもらわないといけなくなります。）
+
+ということで、こんな感じで線を引いてみましょう。
+
+![s049](images/s049.png)
+
+ちょっと線がかぶって見にくいですよね。こういう場合は、「すいません、そのレシピは・・・」のSpeakブロックをドラッグします。
+
+![s050](images/s050.png)
+
+線が自動で引きなおされて見やすくなりましたよね。このように一旦線を引いたブロックを動かすと自動で線が引き直されます。ブロックをたくさん作っていくと見にくくなって処理がわからなくなるので、こんな感じで見やすくしておくのがおすすめです。
+
+Positive
+: 線自体を曲げたりする方法もあります。
+
+Positive
+: 自動で線を綺麗に引く機能の追加が検討されているようです。
+
+これで、説明にないレシピをユーザが発話した場合、以下のような感じで、会話フローが元に戻ることになります。
+
+```raw
+アレクサ：すいません、そのレシピはありません。現在ご紹介できるレシピは、肉じゃが、カレーライス、カルボナーラです。
+
+        どのレシピを聞きたいですか？
+
+（・・・以後、繰り返し・・・）
+```
+
+では、各レシピのSpeakブロックの続きも作成していきましょう。レシピを説明したあとの流れは以下のような感じでした。
+
+```
+アレクサ：わかりました。では肉じゃがの４人分のレシピです。
+
+        じゃがいも、５００グラム、玉ねぎ、１個、牛肉細切れ、２００グラム、糸こんにゃく、１００グラム、
+        サラダ油、小さじ１、水３００ミリリットル、濃口醤油、大さじ４、みりん、大さじ４、酒、大さじ３、
+        砂糖、大さじ３、です。
+
+        他のレシピも聞きますか？
+
+ユーザ　：いいえ
+
+アレクサ：わかりました。今日のご飯が楽しみですね。また利用してくださいね
+```
+
+まず、「他のレシピも聞きますか？」というのをSpeakブロックで追加します。ここはどのレシピの説明をしたとしても共通なので、以下のように線を引くことができます。
+
+![s051](images/s051.png)
+
+次は、ここで「はい」「いいえ」の分岐になります。
+
+Interactionブロックのところで説明しましたが、ユーザの発話内容で分岐させたい場合、現状はInteractionブロックとIfブロックを組み合わせて使うしかないということでしたが、Alexa開発において、「はい」「いいえ」は少し特殊な位置づけとなっており、この場合はInteractionブロックだけで実現できます。
+
+まず、Interactionブロックを置いて、先程のSpeakブロックから線を引きます。Interactionブロックの中のChoicesタブを開いて"Add Choices"をクリックします。
+
+![s052](images/s052.png)
+
+"Select Intent"から"YesIntent"を選択します。これが「はい」になります。
+
+![s053](images/s053.png)
+
+同様にして"Add Choices"をクリックして、今度は「いいえ」になる"NoIntent"を選択します。２つとも設定するとこんな感じになります。Interactionブロックに分岐ができているのがわかりますでしょうか。
+
+![s054](images/s054.png)
+
+あとは線を引くだけですね。まず、「はい」の場合、「他のレシピを聞きますか？」に対して「はい」と答えているので、レシピの選択まで戻せばいいだけですね。
+
+![s055](images/s055.png)
+
+次は「いいえ」です。Voiceflowではブロックの後ろに何も線を引かなければそこで処理が終了します。ただ、できれば最後に挨拶させたいですよね。ということでシナリオどおり「今日のご飯が楽しみですね。また利用してください」と喋らせることにします。もうわかりますよね？
+
+最後にここまでの全体像を載せておきます。
+
+![s056](images/s056.png)
+
+できたらアップロードしてテストしてみてください。想定どおりに動きましたか？
+
+## まとめ
+
+いかがでしたか？通常のAlexaスキル開発では、VUIの知識に加えて、プログラミングの知識、クラウド（Amazon Web Service）の知識も必要になりますが、Voiceflowでは、VUIの知識は必要ですが、プログラミングやクラウドの仕組みを知らなくてもGUIだけでスキル開発を行うことができます。プログラミングの初心者や苦手な方でもアイデア次第でスキルを作成することができますので、ぜひトライしてみてください！
+
+### 宿題
+
+これで一通りスキルが動作するようになりましたが、ブラッシュアップする余地は残されています。興味のある方は、以下のようなことを実現するにはどうすればよいか、試してみてください。
+
+- レシピをもっと追加する
+- レシピの種類を教えてくれるインテントを作成する。
+- 音声や効果音を追加してみる（ヒント：Speakブロックで音声ファイルをアップロードする、Alexa Skills Kitサウンドライブラリを使って文字列で設定する）
+- 話し方を変えたり、正しく発話されない場合に対応する（ヒント：SSML）
+- Alexaの標準機能として、フローに関係なく、どのタイミングでも「ヘルプ」と言われた場合には、機能説明をしないといけません。VoiceflowではHelp Flowという部分で実装されています。この部分を修正してみてください。
+- Alexaの標準機能として、フローに関係なく、どのタイミングでも「ストップ」と言われた場合には、処理を終了しなければなりません。VoiceflowではStop Flowという部分で実装されています。この部分を修正してみてください。
+- 初めて使うユーザと、２回目以降のユーザを区別する。
+- 他のブロックを使ってみる。（APIブロックなど）
+- Amazonに申請してスキルを公開する。
+
+### 参考
+
+以下に参考となる情報をまとめておきます。英語が多いですが、一度見てみてください。
+
+#### Voiceflow University
+
+[https://university.getvoiceflow.com/](https://university.getvoiceflow.com/)
+
+![link01](images/link01.png)
+
+Voiceflowのドキュメントや説明ビデオ、チュートリアルなどが豊富に揃っています。
+
+#### Youtube: Voiceflowチャンネル
+
+[https://www.youtube.com/channel/UCbqUIYQ7J2rS6C_nk4cNTxQ/featured](https://www.youtube.com/channel/UCbqUIYQ7J2rS6C_nk4cNTxQ/featured)
+
+![link02](images/link02.png)
+
+Voiceflowのチュートリアルビデオが揃っています。
+
+#### Facebookグループ
+
+[https://www.facebook.com/groups/voiceflowgroup/](https://www.facebook.com/groups/voiceflowgroup/)
+
+![link03](images/link03.png)
+
+Facebookのグループです。各国のユーザから活発な意見や質問が飛び交ってますが、Voiceflowの中の人がマメに答えてくれます。参加申請が必要ですが、すぐに許可してくれます。
+
+#### Voiceflow Forum
+
+[https://forum.getvoiceflow.com/](https://forum.getvoiceflow.com/)
+
+![link04](images/link04.png)
+
+会員制のフォーラムです（要登録）。不具合、機能リクエスト、などいろいろあります。
+
+#### チャットサポート
+
+Voiceflowの画面の右下にあるこのアイコンをクリックするとチャットサポートが利用できます。時間帯があえば結構迅速にレスしてくれます。
+
+![link05-01](images/link05-01.png)
+
+![link05-02](images/link05-02.png)
+
+#### 国内の紹介記事
+
+順不同です。
+
+- [【最新版】ノンプログラミングでAlexaスキルが作れるサービスを比較！ | smartio.life](https://smartio.life/smartspeaker/development/blog/alexa-service-hikaku/)
+
+- [ノンプログラマーでもAlexaスキルが作れるサービス「Voiceflow」でスキルを作ってみた | smartio.life](https://smartio.life/smartspeaker/development/blog/voiceflow-alexaskill/)
+
+- [Alexaスキル作成ツール「Voiceflow（ボイスフロー）」が日本語対応をすると発表。 | smartio.life](https://smartio.life/news/ai-assistant/voiceflow-japanese-support/)
+
+- [Alexa作成ツール「VoiceFlow」の社長にインタビュー！今後追加する機能や展望は？ | smartio.life](https://smartio.life/news/ai-assistant/voiceflow-interview201811/)
+
+- [VoiceflowがAPL対応スキルも制作可能に！更にカード対応、スキル内決済も | smartio.life](https://smartio.life/smartspeaker/development/blog/voiceflow-news-jan2019/)
+
+- [海外デベロッパーがVoiceflowでデカいスキルの作成過程を見せてくれた | smartio.life](https://smartio.life/smartspeaker/development/blog/voiceflow-huge-skill-flow/)
+
+- [[Alexa]ノンコーディングでAlexaスキルを作れるサービスVoiceflowが今後にすごく期待できる内容だった #Alexa #Voiceflow ｜ DevelopersIO](https://dev.classmethod.jp/etc/mrmo-voiceflow-20190212/)
+
+- [夢のハイブリッド開発が実現！？ノンコーディングでAlexaスキルが作れるサービスVoiceflowがGoogleアシスタントにも対応 #Googleassistant #Alexa #Voiceflow ｜ DevelopersIO](https://dev.classmethod.jp/voice-assistant/mrmo-voiceflow-20190222/)
+
+- [JAWS DAYS 2019登壇資料「〜非エンジニアの皆様に贈る〜 Alexaスキル開発ができるようになるまでのリアルな道のり」#jawsdays #jawsug #jd2019_f #alexa #voiceflow ｜ DevelopersIO](https://dev.classmethod.jp/voice-assistant/mrmo-jawsdays-alexa-20190223/)
+
+- [[Alexa] Voiceflowで多言語対応のAlexaスキルを作ってみる #Alexa #Voiceflow ｜ DevelopersIO](https://dev.classmethod.jp/voice-assistant/mrmo-voiceflow-20190303/)
