@@ -6,7 +6,7 @@ id: dist
 {{if .Meta.Categories}}categories: {{commaSep .Meta.Categories}}{{end}}
 {{if .Meta.Tags}}tags: {{commaSep .Meta.Tags}}{{end}}
 {{if .Meta.Feedback}}feedback link: {{.Meta.Feedback}}{{end}}
-analytics account: UA-113389308-3
+{{if .Meta.GA}}analytics account: {{.Meta.GA}}{{end}}
 
 ---
 # Voiceflowハンズオン
