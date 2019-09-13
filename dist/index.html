@@ -21,27 +21,29 @@
 </head>
 <body>
   <google-codelab-analytics gaid="UA-49880327-14"></google-codelab-analytics>
-  <google-codelab title="Voiceflowハンズオン Vol.1"
+  <google-codelab codelab-gaid=""
+                  id="dist"
+                  title="Voiceflowハンズオン Vol.1"
                   environment="web"
                   feedback-link="">
     
       <google-codelab-step label="概要" duration="0">
-        <h2>概要</h2>
+        <h2 is-upgraded>概要</h2>
 <p>Voiceflowを使ったAlexaスキル開発のハンズオン資料です。</p>
-<h2>想定するターゲット</h2>
+<h2 is-upgraded>想定するターゲット</h2>
 <ul>
 <li>Alexaスキル開発に興味のある方</li>
 <li>プログラミングをやったことがない方</li>
 <li>とりあえず始めてみたい方</li>
 </ul>
-<h2>注意</h2>
+<h2 is-upgraded>注意</h2>
 <aside class="warning"><p>本手順書は2019年3月17日時点のものですが、Voiceflowの開発はかなり活発なので、本手順書通りに進めてもうまくいかない場合や画面が変更されている場合があります。</p>
 </aside>
 <aside class="warning"><p>Voiceflowは、一部日本語がうまく扱えないところがあります。そのため、回避策的なやり方で進める場合がありますが、ご了承ください。そのうち改善されるかもしれません。</p>
 </aside>
 <aside class="special"><p>不具合やお気づきの点があれば、kun432.8d1w@gmail.comまで。</p>
 </aside>
-<h2>更新履歴</h2>
+<h2 is-upgraded>更新履歴</h2>
 <ul>
 <li>2019/03/19    公開</li>
 <li>2019/03/20    更新履歴を追加、章番号を削除</li>
@@ -52,43 +54,60 @@
       </google-codelab-step>
     
       <google-codelab-step label="事前準備" duration="0">
-        <h2>必要なもの</h2>
+        <h2 is-upgraded>必要なもの</h2>
 <p>以下を事前に準備しておいてください。</p>
-<h3>Amazon.co.jpアカウント</h3>
+<h3 is-upgraded>Amazon.co.jpアカウント</h3>
 <ul>
 <li>amazon.co.jpでアカウント取得後、Alexa開発者コンソールで開発者登録を済ませておいてください。</li>
 <li>まだの方はこちらを参照してください。<br><a href="https://dev.classmethod.jp/voice-assistant/how-to-safety-create-alexa-developers-account/" target="_blank">https://dev.classmethod.jp/voice-assistant/how-to-safety-create-alexa-developers-account/</a></li>
 <li>なお、AWSアカウントは不要です</li>
 </ul>
-<h3>gmailアカウント</h3>
+<h3 is-upgraded>gmailアカウント</h3>
 <p>以下で使用します。事前に準備しておいてください。</p>
 <ul>
 <li>Voiceflowへのログイン</li>
 </ul>
-<h2>では始めましょう！</h2>
+<h2 is-upgraded>では始めましょう！</h2>
 
 
       </google-codelab-step>
     
-      <google-codelab-step label="Voiceflowへのログイン" duration="0">
-        <p>以下URLへアクセスします。</p>
-<p><a href="https://www.getvoiceflow.com/" target="_blank">https://www.getvoiceflow.com/</a></p>
-<p>&#34;Try for Free&#34; をクリックします。</p>
-<p><img alt="s001" src="img/546ef58e4a12f908.png"></p>
-<p>&#34;Sign up with Google&#34; をクリックします。gmailのログイン画面が出てきたらログインします。</p>
-<p><img alt="s002" src="img/87119629124ba733.png"></p>
-<p>Voiceflowをどこで使うか？を聞いてくるので、適当に選んでください。（職場、個人、教育）</p>
-<p><img alt="s003" src="img/7484e2a6e9c7162e.png"></p>
-<p>プログラミング経験があるか？を聞いてくるので、適当に選んでください。（経験なし、少しだけ経験あり、経験豊富）</p>
-<p><img alt="s004" src="img/97a57060f41dcfd2.png"></p>
-<p>以下の画面が出てきたらログイン完了です！</p>
-<p><img alt="s005" src="img/98c67e000fcdaa4d.png"></p>
+      <google-codelab-step label="Voiceflowアカウントの作成とログイン" duration="0">
+        <h2 is-upgraded>Voiceflowアカウントの作成</h2>
+<p><a href="https://voiceflow.com/" target="_blank">https://voiceflow.com/</a>にアクセスします。Voiceflowアカウントを持っていない方は、&#34;Sign up free&#34;をクリックしてアカウントを作成しましょう。<br>※すでにアカウントを持っている方は、これ以降の作業は不要です。&#34;Sign in&#34;をクリックしてログインし、次の章に進みましょう。</p>
+<p class="image-container"><img alt="c03-000" src="img/92009daee52ef5c8.png"></p>
+<p>&#34;Sign up with Google&#34; をクリックします。</p>
+<p class="image-container"><img alt="c03-001" src="img/aebfa22299830035.png"></p>
+<p>gmailのログイン画面が出てきたらログインします。</p>
+<p class="image-container"><img alt="c03-002" src="img/e1e358a35093dc31.png"></p>
+<p>登録後にかんたんなアンケートがありますので、順に答えていきましょう。なお、どれを選択したとしてもVoiceflowの利用に影響はありませんので安心してください。&#34;Continue&#34;をクリックして進めます。</p>
+<p class="image-container"><img alt="c03-003" src="img/d55c64077fcd3b21.png"></p>
+<p>Voceflowを使う目的（個人利用か、仕事か）を聞いてくるので、適当に選んでください。選んだら、&#34;Continue&#34;をクリックします。</p>
+<p class="image-container"><img alt="c03-004" src="img/54c7c9f36e6cdd8f.png"></p>
+<p>Voiceflowをどういうふうに使うのか（デザインやプロトタイピング、開発やリリース）を聞いてくるので、適当に選んでください。選んだら、&#34;Continue&#34;をクリックします。</p>
+<p class="image-container"><img alt="c03-005" src="img/329fb5ab2fb13c8a.png"></p>
+<p>プログラミング経験があるか？を聞いてくるので、適当に選んでください。（経験なし、少しだけ経験あり、経験豊富）。選んだら、&#34;Complete&#34;をクリックします。</p>
+<p class="image-container"><img alt="c03-006" src="img/748a2f23291a9011.png"></p>
+<p>以下の画面が出てきたらログイン完了です！ちなみに動画の方はVoiceflowのCEOであるBradenさんです。&#34;Get started&#34;をクリックします。</p>
+<p class="image-container"><img alt="c03-007" src="img/13e00a5e3086295c.png"></p>
+<p>&#34;My First Project&#34; という最初のプロジェクトが開いた状態になっていますが、これは使いません。左上の&#34;＜&#34;をクリックします。</p>
+<p class="image-container"><img alt="c03-008" src="img/44f50dfde092d1e4.png"></p>
+<p>プロジェクトの一覧画面が表示されます。Voiceflowでは、AlexaスキルやGoogle Homeアクションを「プロジェクト」という単位で管理します。右の列にあるのがさっき開いていた、アカウント作成と同時に最初に自動作成される「My First Project」ですね。左の列にはサンプルのプロジェクトが並んでいます。</p>
+<p>このハンズオンでは、この一覧画面でプロジェクトの新規作成から行いますので、これらのプロジェクトはすべて使用しません。プロジェクトを作成するとこの画面に一覧表示される、と思ってもらえればよいです。</p>
+<p class="image-container"><img alt="c03-009" src="img/6b84e0ee687b8ce9.png"></p>
+<aside class="special"><p>元々用意されているプロジェクトは、不要であれば削除してもかまいません。特に&#34;My First Project&#34;については、このあとプロジェクトの新規作成を行いますので、削除しても問題ないです。</p>
+</aside>
+<aside class="special"><p>サンプルプロジェクトは、アクションの作り方の参考になると思いますので、興味があれば中身を見てみてください。</p>
+</aside>
+<aside class="warning"><p>削除したプロジェクトは復旧できませんので、ご注意ください。</p>
+</aside>
+<p>これで準備が整いました。いよいよ次の章からAlexaスキルを作っていきます！</p>
 
 
       </google-codelab-step>
     
       <google-codelab-step label="スキルの作成（STEP1）" duration="0">
-        <h2>今回作成するスキルについて</h2>
+        <h2 is-upgraded>今回作成するスキルについて</h2>
 <p>このハンズオンでは以下のようなスキルを作成します。</p>
 <pre><code>ユーザ　：アレクサ、我が家の食卓を開いて
 
@@ -110,21 +129,21 @@
 
 アレクサ：わかりました。今日のご飯が楽しみですね。また利用してくださいね。
 </code></pre>
-<h2>スキルの作成（その１）</h2>
+<h2 is-upgraded>スキルの作成（その１）</h2>
 <p>ではスキルを作成していきましょう！</p>
 <p>&#34;Create Skill&#34; をクリックします。</p>
-<p><img alt="s006" src="img/4da210e2ee59f62d.png"></p>
+<p class="image-container"><img alt="s006" src="img/4da210e2ee59f62d.png"></p>
 <p>スキルの基本情報を入力します。</p>
 <p>&#34;Enter your project name&#34; にスキル名を入力します。スキル名がスキルの呼び出し名になります。今回は「我が家の食卓」と入力します。</p>
 <p>国・言語は、日本語向けスキルなので、&#34;Japanese（JP）&#34;にチェックを入れて、&#34;English（US）&#34;のチェックを外します。</p>
 <p>最後に&#34;Continue&#34;をクリックします。</p>
 <aside class="warning"><p>複数の国にチェックを入れることができますが、日本語の場合、現時点では1つのスキルで多言語に対応することはできません。（厳密には、作成はできますが申請で弾かれる可能性が高いです。）</p>
 </aside>
-<p><img alt="s007" src="img/3b11bd2a1aac2187.png"></p>
+<p class="image-container"><img alt="s007" src="img/3b11bd2a1aac2187.png"></p>
 <p>テンプレートを選択する画面が出てきます。今回は左上の&#34;Blank&#34;を選択して、イチから作成します。</p>
 <aside class="special"><p>フローの作り方の参考になるので、テンプレートも一度お試しすることをおすすめします。</p>
 </aside>
-<p><img alt="s008" src="img/d2bdc812d7151c43.png"></p>
+<p class="image-container"><img alt="s008" src="img/d2bdc812d7151c43.png"></p>
 <p>スキル開発用のキャンバス画面が表示されます。この画面が基本となります。</p>
 <ul>
 <li>最初から用意してあるHomeの中にあるStartブロックがスタート地点になります。</li>
@@ -132,22 +151,22 @@
 <li>ブロックの中に発話などを設定します。</li>
 <li>ブロック同士を線でつなげます。</li>
 </ul>
-<p><img alt="s009" src="img/1a4605c4775b3e94.png"></p>
+<p class="image-container"><img alt="s009" src="img/1a4605c4775b3e94.png"></p>
 <p>では早速やってみましょう！左のメニューから、&#34;Speak&#34;と書かれたブロックをドラッグアンドドロップして、Homeブロックの右側に置きます。</p>
-<p><img alt="s010" src="img/11d2b302c46e5f8e.png"></p>
+<p class="image-container"><img alt="s010" src="img/11d2b302c46e5f8e.png"></p>
 <p>右側にSpeakブロックのメニューが出てきました。&#34;Tell Alexa what to say...&#34;と書かれたところに以下の文章を入力します。</p>
 <pre><code>我が家の食卓へようこそ！このスキルでは我が家のレシピをご紹介しますよ。
 </code></pre>
-<p><img alt="s011" src="img/fef5b8f2dc8b207c.png"></p>
+<p class="image-container"><img alt="s011" src="img/fef5b8f2dc8b207c.png"></p>
 <p>StartブロックとSpeakブロックを線でつなげます。Startブロックの右端の四角の部分からSpeakブロックの左端の四角の部分までドラッグしてつなげてください。</p>
-<p><img alt="s012" src="img/3823c9e0e428ef8d.png"></p>
+<p class="image-container"><img alt="s012" src="img/3823c9e0e428ef8d.png"></p>
 <p>さらに、もう一つSpeakブロックを追加しましょう。場所は先ほど作成したSpeakブロックの右でよいです。中の文章は以下を入力します。</p>
 <pre><code>何のレシピを聞きたいですか？
 </code></pre>
 <p>そしてSpeakブロック同士をつなげます。こんな感じになります。</p>
-<p><img alt="s023" src="img/fa6f5c8502acebfe.png"></p>
+<p class="image-container"><img alt="s023" src="img/fa6f5c8502acebfe.png"></p>
 <p>ではここで一旦保存しましょう。Voiceflowでは、保存は定期的に自動で行われますが、右上にフロッピーのアイコンが表示されている場合はまだ保存されていない状態なのでクリックして保存します。最新の状態で保存済みの場合は緑のチェックマークが表示されます。</p>
-<p><img alt="s012-02" src="img/ef1f541e9d6d21d3.png"></p>
+<p class="image-container"><img alt="s012-02" src="img/ef1f541e9d6d21d3.png"></p>
 <p>ではテストしてみましょう。</p>
 
 
@@ -162,34 +181,34 @@
 <p>ということで、テストはAlexa開発者コンソール側で行うこととします。</p>
 <aside class="special"><p>Voiceflow側の細かい動きを確認する場合には、Voiceflowのテスト機能も有用です。</p>
 </aside>
-<h2>スキルのアップロード</h2>
+<h2 is-upgraded>スキルのアップロード</h2>
 <p>Alexa開発者コンソールへのアップロードは右上の&#34;Upload To Alexa&#34;をクリックします。</p>
-<p><img alt="s013" src="img/b5473075486491d5.png"></p>
+<p class="image-container"><img alt="s013" src="img/b5473075486491d5.png"></p>
 <p>はじめてアップロードする場合は、Alexa開発者コンソールとの連携ができていませんので、連携設定を行う必要があります。&#34;Login with Amazon&#34;をクリックします。</p>
 <aside class="special"><p>Alexa開発者コンソールとの連携は最初の１回だけです。別のスキルを作成してアップロードする場合は聞かれません。</p>
 </aside>
-<p><img alt="s014" src="img/49c2132e8a1148f2.png"></p>
+<p class="image-container"><img alt="s014" src="img/49c2132e8a1148f2.png"></p>
 <p>Amazonへのログイン画面が表示されますので、Amazon.co.jpのアカウントでログインします。</p>
-<p><img alt="s015" src="img/9bae01cd4eaf1587.png"></p>
+<p class="image-container"><img alt="s015" src="img/9bae01cd4eaf1587.png"></p>
 <p>開発者コンソールへのアクセス権の確認が行われますので「許可」をクリックします。</p>
-<p><img alt="s016" src="img/4214f48a1e134bd1.png"></p>
+<p class="image-container"><img alt="s016" src="img/4214f48a1e134bd1.png"></p>
 <p>この画面が表示されれば連携は完了です。&#34;Continue&#34;をクリックして、スキルをアップロードします。</p>
-<p><img alt="s017" src="img/1ffabb26ccd5f5fc.png"></p>
+<p class="image-container"><img alt="s017" src="img/1ffabb26ccd5f5fc.png"></p>
 <p>アップロードの進捗が表示されます。</p>
-<p><img alt="s018" src="img/f69a2bfacb1e5c1.png"></p>
+<p class="image-container"><img alt="s018" src="img/f69a2bfacb1e5c1.png"></p>
 <p>&#34;Upload Successful&#34;と表示されれば、アップロードは完了し、Alexa開発者コンソールでのテストが可能になります。&#34;Test on Alexa Simulator&#34;をクリックします。</p>
-<p><img alt="s019" src="img/3f944734c2cf3a5c.png"></p>
+<p class="image-container"><img alt="s019" src="img/3f944734c2cf3a5c.png"></p>
 <p>Alexa開発者コンソールのテストシミュレータ表示されます。</p>
-<p><img alt="s020" src="img/a047257ae56d9023.png"></p>
-<h2>スキルのテスト</h2>
+<p class="image-container"><img alt="s020" src="img/a047257ae56d9023.png"></p>
+<h2 is-upgraded>スキルのテスト</h2>
 <p>ではテストしてみましょう。左の「日本語」と書かれた横の入力欄に「我が家の食卓をひらいて」と入力しENTERキーを押してください。</p>
 <aside class="special"><p>実際に音声で入力することも可能です。その場合は、入力欄の右端にあるマイクのアイコンをクリックしたまま、「我が家の食卓を開いて」と言って、言い終わったらクリックを放してください。</p>
 </aside>
-<p><img alt="s021" src="img/73dee27c72b486.png"></p>
+<p class="image-container"><img alt="s021" src="img/73dee27c72b486.png"></p>
 <p>Voiceflowで設定した通りの文章が表示（発話）されましたでしょうか？</p>
 <aside class="warning"><p>「Error retrieving device rendering: The object provided is not a valid template」というエラーが表示されるかもしれませんが、今は気にしなくて良いです。（Alexaでは、起動後の発話だけで処理が終了する場合にエラーとなるようです。この後の発話を増やせばでなくなります。）</p>
 </aside>
-<p><img alt="s022" src="img/8ff22b06e7439c8d.png"></p>
+<p class="image-container"><img alt="s022" src="img/8ff22b06e7439c8d.png"></p>
 <p>まだ、少ししか喋らせていないのでテストというほどのものでもないですが、Voiceflowでのスキル開発は、</p>
 <ul>
 <li>Voiceflowでスキルを作成</li>
@@ -211,7 +230,7 @@
 <p>これらはそのうち治るかもしれませんが、現状、こういった「ユーザの発話」と「それに応じた分岐」を行うには、Interactionブロックを使う必要があります。Interactionブロックを使うには、Alexaの「VUIの仕組み」を少し知る必要があります。</p>
 <aside class="special"><p>Interactionブロックのほうが判定精度が高く、より柔軟なフローの制御ができるため、今後、スキル開発を進めていく上でもおすすめです。</p>
 </aside>
-<h2>VUIの仕組み</h2>
+<h2 is-upgraded>VUIの仕組み</h2>
 <p>では、VUIの仕組みについて学んでいきましょう。VUIに必要な要素は以下の３つとなります。</p>
 <ul>
 <li>インテント</li>
@@ -219,7 +238,7 @@
 <li>スロット</li>
 </ul>
 <p>それぞれ順に説明していきます。</p>
-<h3>インテント</h3>
+<h3 is-upgraded>インテント</h3>
 <p>最初に説明したスキルの応答例の中に、ユーザが「やりたいこと、してほしいこと」が書いてあります。それはなんでしょうか？</p>
 <pre><code>ユーザ　：肉じゃがのレシピを教えて
 </code></pre>
@@ -250,7 +269,7 @@
 <p>レシピを教えてくれるスキルであっても、天気を教えてくれるスキルであっても、スマートスピーカーを操作する場合にはこういうことってありますよね？こういった<strong>スマートスピーカーそのものの機能に関するインテント</strong>を<strong>「標準インテント」</strong>といいます。これらはスキルの種類や内容に関係なく、スマートスピーカーを操作する上で必要な共通機能なので予め用意されており、応答内容だけは開発者が設定することになりますが、機能としての振る舞いは決められた形になります。</p>
 <p>それに対して、最初に例としてあげた「レシピの種類をおしえて」や「〇〇〇のレシピを教えて」は、その<strong>スキル固有の機能</strong>、すなわち、スキル固有のインテントになりますので <strong>「カスタムインテント」</strong>といいます。これは開発者が自由に作成することができます。</p>
 <p>まとめると、カスタムインテントは開発者がそのスキルの一機能としての振る舞い、応答内容も含めてイチから実装するもの、標準インテントは予め用意されたルールに従って応答だけ設定するもの、と覚えてください。</p>
-<h2>サンプル発話</h2>
+<h2 is-upgraded>サンプル発話</h2>
 <p>再度、先程のカスタムインテントの例を見てみましょう</p>
 <pre><code>ユーザ　：肉じゃがのレシピを教えて
 </code></pre>
@@ -258,7 +277,7 @@
 <p>「肉じゃがのレシピ、教えて」（微妙に違う）<br>「肉じゃがのレシピ！」（動詞がない）<br>「今夜は、肉じゃがにしよーかー」（独り言っぽい）<br>「肉じゃが！」（めんどくさい）</p>
 <p>意図としてはすべて同じですが、言い方は様々ですよね？これらの<strong>ユーザの発話の「パターン」</strong>を <strong>「サンプル発話」</strong>といいます。音声認識の技術は格段に進歩しましたが、文脈の解析はまだまだ完璧ではありません。そこで、こういったユーザの言いそうなパターンを可能な限り網羅することで、より高い精度で多くのユーザの要求に答えることが可能となります。</p>
 <p>また、これはカスタムインテントだけではなく、標準インテントでも同じです。標準インテントの場合には予めユーザのサンプル発話が内部的に用意されていますが、それでもすべてのユーザの発話パターンに対応できるわけではないため、より精度を高めたい場合にはサンプル発話を追加することも可能です。</p>
-<h2>スロット</h2>
+<h2 is-upgraded>スロット</h2>
 <p>もう一度、カスタムインテントを見てください。</p>
 <pre><code>ユーザ　：肉じゃがのレシピを教えて
 </code></pre>
@@ -268,13 +287,13 @@
 <li>スロットを変数として取得してプログラムに渡すことができる。</li>
 </ul>
 <p>ができるようになり、より柔軟なスキル開発ができるようになります。</p>
-<h2>VUIのまとめ</h2>
+<h2 is-upgraded>VUIのまとめ</h2>
 <p>インテント、サンプル発話、スロットの関係を図にまとめるとこんな感じになります。</p>
-<p><img alt="vui" src="img/7164319a5ae46c17.png"></p>
+<p class="image-container"><img alt="vui" src="img/7164319a5ae46c17.png"></p>
 <p>なんとなく雰囲気がわかったでしょうか？現時点では、まだよくわからない部分もあるかもしれませんが、それは実際のスキル開発の中で学んでいきましょう！</p>
-<h2>スキルの作成（STEP2）続き</h2>
+<h2 is-upgraded>スキルの作成（STEP2）続き</h2>
 <p>ではインテントを作っていきましょう。左のメニューの&#34;Advanced&#34;をクリックすると、Interactionブロックというのが出てくるので、これを二つ目のSpeakブロックの右に配置して、線でつなぎます。</p>
-<p><img alt="s024" src="img/3854122026bc5a61.png"></p>
+<p class="image-container"><img alt="s024" src="img/3854122026bc5a61.png"></p>
 <p>次に、Interactionブロックの中の設定を行います。</p>
 <p>まず、スロットの設定です。Interactionブロックの中のSlotsタブをクリックして、Add Slotsをクリックし、以下を設定していきます。</p>
 <ul>
@@ -284,22 +303,22 @@
 <li>続けて&#34;Enter Slot Content Example&#34;に「カレーライス」「カルボナーラ」も同様に入力します。</li>
 </ul>
 <p>こういう感じになります。</p>
-<p><img alt="s025" src="img/8ce890d231920271.png"></p>
+<p class="image-container"><img alt="s025" src="img/8ce890d231920271.png"></p>
 <p>次に、インテントの設定です。Interactionブロックの中のIntentsタブをクリックして、Add Intentsをクリックし、以下を設定していきます。</p>
 <ul>
 <li>&#34;intent_one&#34; を &#34;recipe_intent&#34; に変更します。（日本語は入力できません）</li>
 <li>&#34;Enter user reply&#34; に サンプル発話のパターンを順次入力します。スロットになる部分は &#34;[スロット名]&#34; と入力します。今回の場合は先程スロットで設定した &#34;[recipe_name]&#34;になります。</li>
 </ul>
 <p>例として「肉じゃがのレシピを教えて」のサンプル発話を入力してみましょう。「肉じゃが」の部分がスロットになりますので、入力する内容は「[recipe_name]のレシピを教えて」になりますね？スロットを入力する場合は&#34;[&#34;を入力すると自動的に候補が出てきます。</p>
-<p><img alt="s026" src="img/1ad7ca00beed3aba.png"></p>
+<p class="image-container"><img alt="s026" src="img/1ad7ca00beed3aba.png"></p>
 <p>そのままENTERキーを押すとそれが入力され、スロットの場合はブルーで強調表示されます。</p>
-<p><img alt="s027" src="img/2f53ecc09d43ca87.png"></p>
+<p class="image-container"><img alt="s027" src="img/2f53ecc09d43ca87.png"></p>
 <p>続けて「のレシピを教えて」を入力しますが、スロットの前後には必ず半角スペースが含まれる必要があるので注意してください。</p>
 <aside class="warning"><p>フォームに日本語を入力する場合、少し変な動きをする場合がありますので、一気に変換するのではなく、文節ごとに変換したほうがいかもです。</p>
 </aside>
-<p><img alt="s028" src="img/a3265bf56a6df65b.png"></p>
+<p class="image-container"><img alt="s028" src="img/a3265bf56a6df65b.png"></p>
 <p>入力し終わったら必ずENTERキーで確定させてください。</p>
-<p><img alt="s029" src="img/8217da3443ec5756.png"></p>
+<p class="image-container"><img alt="s029" src="img/8217da3443ec5756.png"></p>
 <p>同様にして、以下を入力して下さい。</p>
 <ul>
 <li>[recipe_name] のレシピ、教えて</li>
@@ -309,24 +328,24 @@
 <aside class="warning"><p>コピペはできませんのでご注意ください。</p>
 </aside>
 <p>こんな感じになります。</p>
-<p><img alt="s030" src="img/4c68ec33ec1d5ac3.png"></p>
+<p class="image-container"><img alt="s030" src="img/4c68ec33ec1d5ac3.png"></p>
 <p>最後に、インテントごとの分岐の設定です。今回はインテントが一つだけですが、複数のインテントの場合はもちろん、スロットを使う場合には必ず設定が必要になります。Interactionブロックの中のChoicesタブをクリックして、Add Choiceをクリックします。</p>
-<p><img alt="s031" src="img/b624edd254da42.png"></p>
+<p class="image-container"><img alt="s031" src="img/b624edd254da42.png"></p>
 <p>Interactionブロックに分岐が増えたのがわかるでしょうか？ここで Select Intent から先ほど作成した&#34;recipe_intent&#34; を選択することで、「xxxxxのレシピを教えて」と言われた場合はこの分岐に入るという紐付けができたことになります。</p>
-<p><img alt="s032" src="img/3cbb212783f3981d.png"></p>
+<p class="image-container"><img alt="s032" src="img/3cbb212783f3981d.png"></p>
 <p>もう一つ、先程インテントの中で設定したスロット、これは後で分岐の条件として使います。Voiceflowでは、If変数による分岐ができるIfブロックというのがあります。スロット値を変数にしたい場合は、スロットと変数のマッピングが必要になります。</p>
 <p>まず変数を作成しましょう。画面一番左の&#34;&lt;/&gt;&#34;のアイコンをクリックします。</p>
-<p><img alt="s033" src="img/9871fe176a0e359b.png"></p>
+<p class="image-container"><img alt="s033" src="img/9871fe176a0e359b.png"></p>
 <p>変数（Variable）の画面が表示されます。真ん中の入力欄に&#34;recipe_name&#34;を入力します。これが変数名になります。最後にENTERキーを忘れずに。</p>
-<p><img alt="s034" src="img/42a5d919465b1602.png"></p>
+<p class="image-container"><img alt="s034" src="img/42a5d919465b1602.png"></p>
 <p>一番下に先程の変数が表示されればOKです。</p>
-<p><img alt="s035" src="img/a552f26502014de5.png"></p>
+<p class="image-container"><img alt="s035" src="img/a552f26502014de5.png"></p>
 <p>では再度Interactionブロックに戻って、スロットと変数のマッピングを行います。Choicesタブの、先程作成したrecipe_intentの中にある&#34;Add Variable Map&#34;をクリックします。</p>
-<p><img alt="s036" src="img/6f5d2f173f8b7394.png"></p>
+<p class="image-container"><img alt="s036" src="img/6f5d2f173f8b7394.png"></p>
 <p>スロットと変数をそれぞれ選択する項目が出てきます。</p>
-<p><img alt="s037" src="img/986e40f26d8859fe.png"></p>
+<p class="image-container"><img alt="s037" src="img/986e40f26d8859fe.png"></p>
 <p>Slotに&#34;recipe_name&#34;、Variableに&#34;recipe_name&#34;をそれぞれ設定します。こんな感じになります。</p>
-<p><img alt="s038" src="img/1076ded568342985.png"></p>
+<p class="image-container"><img alt="s038" src="img/1076ded568342985.png"></p>
 <p>これでInteractionブロックの設定は終わりです。たかだか分岐処理にこれだけの設定が必要なのか、と感じたかもしれませんが、慣れればそれほど時間もかからないようになりますので、ぜひ覚えてください。</p>
 <p>これで、ユーザが発話したレシピ名を変数で処理できるようになりましたので、いよいよ、本当の分岐処理になります。</p>
 
@@ -336,7 +355,7 @@
       <google-codelab-step label="スキルの作成（STEP3）" duration="0">
         <p>では、ここから分岐処理を行います。前の章でもお話したとおり、変数による分岐はIfブロックを使います。</p>
 <p>左のメニューの&#34;Logic&#34;をクリックすると、Ifブロックが出てくるので、これをInteractionブロックの右において、1と書いてある四角とつなげます。</p>
-<p><img alt="s039" src="img/84170b2cf66f66ac.png"></p>
+<p class="image-container"><img alt="s039" src="img/84170b2cf66f66ac.png"></p>
 <p>Ifブロックの中に条件を設定していきます。設定する条件は以下となります。</p>
 <ul>
 <li>変数 recipe_name が &#34;肉じゃが&#34; だったら 1 へ</li>
@@ -346,21 +365,21 @@
 </ul>
 <p>では、「肉じゃが」から設定していきます。Ifブロックを作ると最初から1のルートができていますので、ここに「肉じゃが」の設定を入れます。Ifブロックの設定は少しわかりにくいので順を追って設定してきます。</p>
 <p>valueと書いてある横の青いアイコンをクリックします。</p>
-<p><img alt="s040" src="img/8f2c9672a2ce7e8c.png"></p>
+<p class="image-container"><img alt="s040" src="img/8f2c9672a2ce7e8c.png"></p>
 <p>ドロップダウンリストが表示されるので、&#34;Variable&#34; を選択します。</p>
-<p><img alt="s041" src="img/c2ddd64272c4a4a6.png"></p>
+<p class="image-container"><img alt="s041" src="img/c2ddd64272c4a4a6.png"></p>
 <p>これで変数名を選択することができるようになりますのでクリックします。</p>
-<p><img alt="s042" src="img/593bc7e3e9d54afb.png"></p>
+<p class="image-container"><img alt="s042" src="img/593bc7e3e9d54afb.png"></p>
 <p>recipe_nameを選択します。</p>
-<p><img alt="s043" src="img/ac516f5c83e0fcd9.png"></p>
+<p class="image-container"><img alt="s043" src="img/ac516f5c83e0fcd9.png"></p>
 <p>recipe_nameがIf文の条件になりました。横の青いアイコンをクリックします。</p>
-<p><img alt="s044" src="img/181cb97cb5df9a94.png"></p>
+<p class="image-container"><img alt="s044" src="img/181cb97cb5df9a94.png"></p>
 <p>ドロップダウンリストが表示されるので、&#34;=&#34; を選択します。</p>
-<p><img alt="s045" src="img/218ac95d9501e2fb.png"></p>
+<p class="image-container"><img alt="s045" src="img/218ac95d9501e2fb.png"></p>
 <p>value のところに「肉じゃが」と入力します。</p>
-<p><img alt="s046" src="img/9a4c90d8d90dd155.png"></p>
+<p class="image-container"><img alt="s046" src="img/9a4c90d8d90dd155.png"></p>
 <p>これで一つの条件が完成です。続けて &#34;Add If Statement&#34; をクリックして、「カレーライス」「カルボナーラ」の条件を設定します。最終的にはこんな感じになります。</p>
-<p><img alt="s047" src="img/c05ca5c61fbc86c6.png"></p>
+<p class="image-container"><img alt="s047" src="img/c05ca5c61fbc86c6.png"></p>
 <p>Ifブロックの右端の四角が増えているのがわかるでしょうか？これがそれぞれの条件の番号と対応していて、それぞれの条件に合致したら処理が別れていくということになります。どれにも合致しない場合は&#34;Else&#34;という流れになります。</p>
 <p>さあ、これであとはAlexaにそれぞれのレシピの内容を喋らせるだけです。</p>
 
@@ -369,26 +388,26 @@
     
       <google-codelab-step label="スキルの作成（STEP4）" duration="0">
         <p>ここまで来るともうおわかりですよね？Speakブロックをそれぞれに用意して、レシピの内容を喋らせるだけです。レシピの文章は以下に用意しましたのでコピペしてお使いください。</p>
-<h3>肉じゃが</h3>
+<h3 is-upgraded>肉じゃが</h3>
 <pre><code>肉じゃがのレシピです。じゃがいも、５００グラム、玉ねぎ、１個、牛肉細切れ、２００グラム、糸こんにゃく、１００グラム、サラダ油、小さじ１、水３００ミリリットル、濃口醤油、大さじ４、みりん、大さじ４、酒、大さじ３、砂糖、大さじ３、です
 </code></pre>
-<h3>カレーライス</h3>
+<h3 is-upgraded>カレーライス</h3>
 <pre><code>カレーライスのレシピです。玉ネギ、１個、ニンニク、１かけら、生姜、15グラム、ローリエ、１枚、カレールー、220グラム、ブイヨン、１２００CC、です
 </code></pre>
-<h3>カルボナーラ</h3>
+<h3 is-upgraded>カルボナーラ</h3>
 <pre><code>カルボナーラのレシピです。パスタ、１００グラム、ベーコン、４０グラム、卵、１個、パルメザンチーズ、大さじ３、ブラックペッパー、適量、オリーブオイル、適量、水、１リットル、塩、大さじ１、です
 </code></pre>
-<h3>どれにも該当しない場合</h3>
+<h3 is-upgraded>どれにも該当しない場合</h3>
 <pre><code>すいません、そのレシピはまだありません。現在ご紹介できるレシピは、肉じゃが、カレーライス、カルボナーラです。
 </code></pre>
 <p>こういう感じになります。</p>
-<p><img alt="s048" src="img/471369482aebe2c4.png"></p>
+<p class="image-container"><img alt="s048" src="img/471369482aebe2c4.png"></p>
 <p>elseのところについて説明しておきます。</p>
 <p>elseは、Ifブロックで設定した条件にどれも合致しなかった場合のフローになります。単に「そのレシピはないよ」と言って、終わってしまっても良いんですが、できればもう一回ユーザに言い直してもらうほうが親切ですよね？（じゃないと、ユーザに最初からやり直してもらわないといけなくなります。）</p>
 <p>ということで、こんな感じで線を引いてみましょう。</p>
-<p><img alt="s049" src="img/f718a19c4e3ad467.png"></p>
+<p class="image-container"><img alt="s049" src="img/f718a19c4e3ad467.png"></p>
 <p>ちょっと線がかぶって見にくいですよね。こういう場合は、「すいません、そのレシピは・・・」のSpeakブロックをドラッグします。</p>
-<p><img alt="s050" src="img/3c1830defdeb71de.png"></p>
+<p class="image-container"><img alt="s050" src="img/3c1830defdeb71de.png"></p>
 <p>線が自動で引きなおされて見やすくなりましたよね。このように一旦線を引いたブロックを動かすと自動で線が引き直されます。ブロックをたくさん作っていくと見にくくなって処理がわからなくなるので、こんな感じで見やすくしておくのがおすすめです。</p>
 <aside class="special"><p>線自体を曲げたりする方法もあります。</p>
 </aside>
@@ -415,20 +434,20 @@
 アレクサ：わかりました。今日のご飯が楽しみですね。また利用してくださいね
 </code></pre>
 <p>まず、「他のレシピも聞きますか？」というのをSpeakブロックで追加します。ここはどのレシピの説明をしたとしても共通なので、以下のように線を引くことができます。</p>
-<p><img alt="s051" src="img/25eb73948315c0af.png"></p>
+<p class="image-container"><img alt="s051" src="img/25eb73948315c0af.png"></p>
 <p>次は、ここで「はい」「いいえ」の分岐になります。</p>
 <p>Interactionブロックのところで説明しましたが、ユーザの発話内容で分岐させたい場合、現状はInteractionブロックとIfブロックを組み合わせて使うしかないということでしたが、Alexa開発において、「はい」「いいえ」は少し特殊な位置づけとなっており、この場合はInteractionブロックだけで実現できます。</p>
 <p>まず、Interactionブロックを置いて、先程のSpeakブロックから線を引きます。Interactionブロックの中のChoicesタブを開いて&#34;Add Choices&#34;をクリックします。</p>
-<p><img alt="s052" src="img/b221d56b6bd72d96.png"></p>
+<p class="image-container"><img alt="s052" src="img/b221d56b6bd72d96.png"></p>
 <p>&#34;Select Intent&#34;から&#34;YesIntent&#34;を選択します。これが「はい」になります。</p>
-<p><img alt="s053" src="img/d027c324017e50a.png"></p>
+<p class="image-container"><img alt="s053" src="img/d027c324017e50a.png"></p>
 <p>同様にして&#34;Add Choices&#34;をクリックして、今度は「いいえ」になる&#34;NoIntent&#34;を選択します。２つとも設定するとこんな感じになります。Interactionブロックに分岐ができているのがわかりますでしょうか。</p>
-<p><img alt="s054" src="img/ceaecec775406971.png"></p>
+<p class="image-container"><img alt="s054" src="img/ceaecec775406971.png"></p>
 <p>あとは線を引くだけですね。まず、「はい」の場合、「他のレシピを聞きますか？」に対して「はい」と答えているので、レシピの選択まで戻せばいいだけですね。</p>
-<p><img alt="s055" src="img/2cf96e34ae947fd0.png"></p>
+<p class="image-container"><img alt="s055" src="img/2cf96e34ae947fd0.png"></p>
 <p>次は「いいえ」です。Voiceflowではブロックの後ろに何も線を引かなければそこで処理が終了します。ただ、できれば最後に挨拶させたいですよね。ということでシナリオどおり「今日のご飯が楽しみですね。また利用してください」と喋らせることにします。もうわかりますよね？</p>
 <p>最後にここまでの全体像を載せておきます。</p>
-<p><img alt="s056" src="img/c87fbcb6d7f8a991.png"></p>
+<p class="image-container"><img alt="s056" src="img/c87fbcb6d7f8a991.png"></p>
 <p>できたらアップロードしてテストしてみてください。想定どおりに動きましたか？</p>
 
 
@@ -436,7 +455,7 @@
     
       <google-codelab-step label="まとめ" duration="0">
         <p>いかがでしたか？通常のAlexaスキル開発では、VUIの知識に加えて、プログラミングの知識、クラウド（Amazon Web Service）の知識も必要になりますが、Voiceflowでは、VUIの知識は必要ですが、プログラミングやクラウドの仕組みを知らなくてもGUIだけでスキル開発を行うことができます。プログラミングの初心者や苦手な方でもアイデア次第でスキルを作成することができますので、ぜひトライしてみてください！</p>
-<h2>宿題</h2>
+<h2 is-upgraded>宿題</h2>
 <p>これで一通りスキルが動作するようになりましたが、ブラッシュアップする余地は残されています。興味のある方は、以下のようなことを実現するにはどうすればよいか、試してみてください。</p>
 <ul>
 <li>レシピをもっと追加する</li>
@@ -449,29 +468,29 @@
 <li>他のブロックを使ってみる。（APIブロックなど）</li>
 <li>Amazonに申請してスキルを公開する。</li>
 </ul>
-<h2>参考</h2>
+<h2 is-upgraded>参考</h2>
 <p>以下に参考となる情報をまとめておきます。英語が多いですが、一度見てみてください。</p>
-<h3>Voiceflow University</h3>
+<h3 is-upgraded>Voiceflow University</h3>
 <p><a href="https://university.getvoiceflow.com/" target="_blank">https://university.getvoiceflow.com/</a></p>
-<p><img alt="link01" src="img/4c11d895750ee25f.png"></p>
+<p class="image-container"><img alt="link01" src="img/4c11d895750ee25f.png"></p>
 <p>Voiceflowのドキュメントや説明ビデオ、チュートリアルなどが豊富に揃っています。</p>
-<h3>Youtube: Voiceflowチャンネル</h3>
+<h3 is-upgraded>Youtube: Voiceflowチャンネル</h3>
 <p><a href="https://www.youtube.com/channel/UCbqUIYQ7J2rS6C_nk4cNTxQ/featured" target="_blank">https://www.youtube.com/channel/UCbqUIYQ7J2rS6C_nk4cNTxQ/featured</a></p>
-<p><img alt="link02" src="img/904a2b84c1e35849.png"></p>
+<p class="image-container"><img alt="link02" src="img/904a2b84c1e35849.png"></p>
 <p>Voiceflowのチュートリアルビデオが揃っています。</p>
-<h3>Facebookグループ</h3>
+<h3 is-upgraded>Facebookグループ</h3>
 <p><a href="https://www.facebook.com/groups/voiceflowgroup/" target="_blank">https://www.facebook.com/groups/voiceflowgroup/</a></p>
-<p><img alt="link03" src="img/46c0f901fe58f432.png"></p>
+<p class="image-container"><img alt="link03" src="img/46c0f901fe58f432.png"></p>
 <p>Facebookのグループです。各国のユーザから活発な意見や質問が飛び交ってますが、Voiceflowの中の人がマメに答えてくれます。参加申請が必要ですが、すぐに許可してくれます。</p>
-<h3>Voiceflow Forum</h3>
+<h3 is-upgraded>Voiceflow Forum</h3>
 <p><a href="https://forum.getvoiceflow.com/" target="_blank">https://forum.getvoiceflow.com/</a></p>
-<p><img alt="link04" src="img/59217ae76cbdc964.png"></p>
+<p class="image-container"><img alt="link04" src="img/59217ae76cbdc964.png"></p>
 <p>会員制のフォーラムです（要登録）。不具合、機能リクエスト、などいろいろあります。</p>
-<h3>チャットサポート</h3>
+<h3 is-upgraded>チャットサポート</h3>
 <p>Voiceflowの画面の右下にあるこのアイコンをクリックするとチャットサポートが利用できます。時間帯があえば結構迅速にレスしてくれます。</p>
-<p><img alt="link05-01" src="img/d430ce6546c880bd.png"></p>
-<p><img alt="link05-02" src="img/131ea2b9e5a0ce1e.png"></p>
-<h3>国内の紹介記事</h3>
+<p class="image-container"><img alt="link05-01" src="img/d430ce6546c880bd.png"></p>
+<p class="image-container"><img alt="link05-02" src="img/131ea2b9e5a0ce1e.png"></p>
+<h3 is-upgraded>国内の紹介記事</h3>
 <p>順不同です。</p>
 <ul>
 <li><a href="https://smartio.life/smartspeaker/development/blog/alexa-service-hikaku/" target="_blank">【最新版】ノンプログラミングでAlexaスキルが作れるサービスを比較！ | smartio.life</a></li>
