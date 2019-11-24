@@ -28,18 +28,24 @@
                   feedback-link="">
     
       <google-codelab-step label="概要" duration="0">
-        <h2 is-upgraded>概要</h2>
-<p>Voiceflowを使ったAlexaスキル開発のハンズオン資料です。</p>
+        <h2 is-upgraded>はじめに</h2>
+<p class="image-container"><img alt="logo" src="img/5b1486cd74daed01.png"></p>
+<p>Voiceflowを使った、ノンコーディングで始めるAlexaスキル開発のハンズオン資料です。</p>
 <h2 is-upgraded>想定するターゲット</h2>
 <ul>
+<li>スマートスピーカーアプリ開発に興味のある方</li>
 <li>Alexaスキル開発に興味のある方</li>
 <li>プログラミングをやったことがない方</li>
 <li>とりあえず始めてみたい方</li>
 </ul>
 <h2 is-upgraded>注意</h2>
+<aside class="warning"><p><strong>現在、大幅にコンテンツを最新化してます。今後内容が変わる可能性がありますのでご了承ください。</strong></p>
+</aside>
 <aside class="warning"><p>本手順書は2019年3月17日時点のものですが、Voiceflowの開発はかなり活発なので、本手順書通りに進めてもうまくいかない場合や画面が変更されている場合があります。</p>
 </aside>
 <aside class="warning"><p>Voiceflowは、一部日本語がうまく扱えないところがあります。そのため、回避策的なやり方で進める場合がありますが、ご了承ください。そのうち改善されるかもしれません。</p>
+</aside>
+<aside class="special"><p>不具合やお気づきの点があれば、<a href="https://github.com/kun432/voiceflow-handson-20190318/issues" target="_blank">https://github.com/kun432/voiceflow-handson-20190318/issues</a>でissue立てていただければと思います。PRも歓迎！</p>
 </aside>
 <aside class="special"><p>不具合やお気づきの点があれば、kun432.8d1w@gmail.comまで。</p>
 </aside>
@@ -48,6 +54,7 @@
 <li>2019/03/19    公開</li>
 <li>2019/03/20    更新履歴を追加、章番号を削除</li>
 <li>2019/05/05    日付が間違っていたのを修正</li>
+<li>2019/09/14    Chapter3を最新化</li>
 </ul>
 
 
@@ -97,7 +104,7 @@
 <p class="image-container"><img alt="c03-009" src="img/6b84e0ee687b8ce9.png"></p>
 <aside class="special"><p>元々用意されているプロジェクトは、不要であれば削除してもかまいません。特に&#34;My First Project&#34;については、このあとプロジェクトの新規作成を行いますので、削除しても問題ないです。</p>
 </aside>
-<aside class="special"><p>サンプルプロジェクトは、アクションの作り方の参考になると思いますので、興味があれば中身を見てみてください。</p>
+<aside class="special"><p>サンプルプロジェクトは、スキルの作り方の参考になると思いますので、興味があれば中身を見てみてください。</p>
 </aside>
 <aside class="warning"><p>削除したプロジェクトは復旧できませんので、ご注意ください。</p>
 </aside>
@@ -131,22 +138,18 @@
 </code></pre>
 <h2 is-upgraded>スキルの作成（その１）</h2>
 <p>ではスキルを作成していきましょう！</p>
-<p>&#34;Create Skill&#34; をクリックします。</p>
-<p class="image-container"><img alt="s006" src="img/4da210e2ee59f62d.png"></p>
+<p>プロジェクトの一覧画面で、Default Listと書いてあるところの一番下の&#34;Create Project&#34;をクリックします。</p>
+<p class="image-container"><img alt="s006" src="img/57bbd4ca99e2cafa.png"></p>
 <p>スキルの基本情報を入力します。</p>
 <p>&#34;Enter your project name&#34; にスキル名を入力します。スキル名がスキルの呼び出し名になります。今回は「我が家の食卓」と入力します。</p>
 <p>国・言語は、日本語向けスキルなので、&#34;Japanese（JP）&#34;にチェックを入れて、&#34;English（US）&#34;のチェックを外します。</p>
 <p>最後に&#34;Continue&#34;をクリックします。</p>
 <aside class="warning"><p>複数の国にチェックを入れることができますが、日本語の場合、現時点では1つのスキルで多言語に対応することはできません。（厳密には、作成はできますが申請で弾かれる可能性が高いです。）</p>
 </aside>
-<p class="image-container"><img alt="s007" src="img/3b11bd2a1aac2187.png"></p>
-<p>テンプレートを選択する画面が出てきます。今回は左上の&#34;Blank&#34;を選択して、イチから作成します。</p>
-<aside class="special"><p>フローの作り方の参考になるので、テンプレートも一度お試しすることをおすすめします。</p>
-</aside>
-<p class="image-container"><img alt="s008" src="img/d2bdc812d7151c43.png"></p>
+<p class="image-container"><img alt="s007" src="img/5ffdc5ed7dba4a17.png"></p>
 <p>スキル開発用のキャンバス画面が表示されます。この画面が基本となります。</p>
 <ul>
-<li>最初から用意してあるHomeの中にあるStartブロックがスタート地点になります。</li>
+<li>最初から用意してあるHome Blockの中にあるStartがスタート地点になります。</li>
 <li>左からブロックを選択して配置します。</li>
 <li>ブロックの中に発話などを設定します。</li>
 <li>ブロック同士を線でつなげます。</li>
